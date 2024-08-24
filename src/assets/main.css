@@ -1,0 +1,117 @@
+@import './base.css';
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  height: 100vh;
+  padding: 2rem;
+  font-weight: normal;
+  background: var(--vt-c-black-mute);
+  color: var(--vt-c-white-soft);
+}
+
+#app a {
+  text-decoration: none;
+  font-size: 16px;
+  color: var(--color-background);
+}
+
+#app div {
+  padding: 0;
+  margin: 0;
+}
+
+#app .title {
+  color: var(--color-background);
+}
+
+#app .btn {
+  background: var(--color-background);
+  color: var(--vt-c-black-mute);
+}
+
+#app .btn:hover {
+  opacity: 0.6;
+}
+
+#app .container {
+  height: 100%;
+}
+
+#app .wrap {
+  width: 50%;
+}
+
+#app input {
+  background: var(--vt-c-white-soft);
+  border: none;
+}
+
+#app input:focus {
+  background: var(--vt-c-white-soft);
+  outline: 2px solid var(--color-background);
+}
+
+#app input[type='checkbox'] {
+  accent-color: var(--color-background);
+}
+
+#app .card {
+  width: 360px;
+  margin: 0 auto;
+  background: var(--vt-c-black-soft);
+  color: var(--vt-c-white-soft);
+  border: none;
+}
+
+#app .remark {
+  font-size: 14px;
+}
+
+#app .alert {
+  font-size: 14px;
+  color: var(--color-background);
+  margin: 4px 0;
+}
+
+#app .todo-wrap {
+  border: 1px solid var(--color-background);
+  padding-bottom: 24px;
+}
+
+#app .nav {
+  color: var(--color-background);
+}
+
+#app .nav-item {
+  cursor: pointer;
+}
+
+#app .nav-item:hover {
+  box-shadow: 0 1px 0 0 var(--color-background);
+}
+
+#app .list-group-item {
+  color: var(--vt-c-white-soft);
+  background: var(--vt-c-black-soft);
+  border: none;
+  padding: 16px;
+  margin: 2px 24px;
+}
+
+#app .list-group-item:hover {
+  background: #6867678e;
+}
+
+@media (hover: hover) {
+  a:hover {
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: 992px) {
+  #app .wrap {
+    width: 100%;
+  }
+}
