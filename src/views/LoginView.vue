@@ -37,18 +37,32 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import userService from '@/services/userService'
+import cookieService from '@/services/cookieService'
 
 const loginData = ref({
   email: '',
   password: ''
 })
 const isFormFilled = ref(true)
+const router = useRouter()
 
-function handleClick() {
+async function handleClick() {
   if (loginData.value.email !== '' && loginData.value.password !== '') {
-    console.log(loginData.value.email, loginData.value.password)
+    if (loginData.value.password.length >= 6) {
+      try {
+        const res = await userService.login(loginData.value)
+        cookieService.setCookie('todoToken', res.data.token)
+        router.push('/todo')
+      } catch (err) {
+        console.log(err.response)
+        alert(`送出失敗，${err.response.data.message}`)
+      }
+    } else alert('Send Failed, password requires at least 6 words')
   } else {
     isFormFilled.value = false
+    alert('Login Failed, form is unfinished!')
   }
 }
 </script>

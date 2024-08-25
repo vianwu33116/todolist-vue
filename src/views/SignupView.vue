@@ -50,6 +50,7 @@
 </template>
 
 <script setup>
+import userService from '@/services/userService'
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -61,14 +62,21 @@ const signupData = ref({
 const isFormFilled = ref(true)
 const router = useRouter()
 
-function handleClick() {
+async function handleClick() {
   if (signupData.value.email !== '' && signupData.value.password !== '') {
-    console.log(signupData.value.email, signupData.value.password, signupData.value.nickname)
-    setTimeout(() => {
-      router.push('/')
-    }, 2000)
+    if (signupData.value.password.length >= 6) {
+      try {
+        await userService.signup(signupData.value)
+        alert('Sign up success! Please Login to use the todo list.')
+        router.push('/')
+      } catch (err) {
+        console.log(err.response)
+        alert(`送出失敗，${err.response.data.message}`)
+      }
+    } else alert('Send Failed, password requires at least 6 words')
   } else {
     isFormFilled.value = false
+    alert('Send Failed, form is unfinished!')
   }
 }
 </script>
