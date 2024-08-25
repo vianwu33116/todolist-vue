@@ -39,7 +39,7 @@ function editToDo(itemId, content) {
 }
 
 function toggleToDo(itemId) {
-  return axios.patch(`${url}/todos/${itemId}/toggle`, {
+  return axios.patch(`${url}/todos/${itemId}/toggle`, null, {
     headers: {
       Authorization: cookieService.getCookie('todoToken')
     }
