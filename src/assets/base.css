@@ -59,9 +59,9 @@
 }
 
 body {
-  min-height: 100vh;
+  height: 100vh;
   color: var(--color-text);
-  background: var(--color-background);
+  background: var(--vt-c-black-mute) !important;
   transition:
     color 0.5s,
     background-color 0.5s;
